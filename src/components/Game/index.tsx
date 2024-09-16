@@ -26,11 +26,11 @@ export default function Game(props: _GameProps) {
                     <Text> - </Text>
                     <Text>{ props.game.developer } 👾</Text>
                 </View>
-                <Text>{ props.game.platform } 🎮</Text>
-                <Text>{ props.game.genre } 📖</Text>
-                <Text>{ props.game.release_date } 📅</Text>
-                <Text>{ props.game.rating } </Text>
-                <Text>{ props.game.rating_score } ⭐</Text>
+                <Text>Plataforma: { props.game.platform } 🎮</Text>
+                <Text>Gêneros: { props.game.genre } 📖</Text>
+                <Text>Lançamento: { props.game.release_date } 📅</Text>
+                <Text>Classificação: { props.game.rating } </Text>
+                <Text>Nota: { props.game.rating_score } ⭐</Text>
             </View>
         </View>
     )
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
     gameTitleText: {
-        fontWeight: "bold"
+        fontWeight: "bold",
+        fontSize: 16
     }
 })
