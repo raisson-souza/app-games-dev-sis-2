@@ -8,7 +8,6 @@ import GameModal from "@components/GameModal"
 import { GameProps } from "@customTypes/GameProps"
 
 export default function App() {
-  // TODO: extra: modal ao clicar no jogo exibindo trailer
   const games = Games.sort((a, b) => a.name.localeCompare(b.name))
   const [ search, setSearch ] = useState<string>("")
   const filteredGames = games.filter(({ name }) =>

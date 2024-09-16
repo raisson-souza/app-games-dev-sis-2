@@ -1,6 +1,5 @@
 import { GameProps } from "@customTypes/GameProps"
-import { Text, View, StyleSheet, Button, Image } from "react-native"
-import React, { createRef, LegacyRef, useRef } from "react"
+import { Text, View, StyleSheet, Image } from "react-native"
 
 type GameModalProps = {
     game: GameProps
