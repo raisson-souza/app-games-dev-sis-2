@@ -9,12 +9,13 @@ type _GameProps = {
 export default function Game(props: _GameProps) {
     return (
         <View style={ styles.container }>
-            <View>
+            <View style={ styles.gameImage }>
                 <GameImage game={ props.game } />
             </View>
             <View>
-                <View>
-                    <Text>{ props.game.name }</Text>
+                <View style={ styles.gameTitle }>
+                    <Text style={ styles.gameTitleText }>{ props.game.name }</Text>
+                    <Text> - </Text>
                     <Text>{ props.game.developer } 👾</Text>
                 </View>
                 <Text>{ props.game.platform } 🎮</Text>
@@ -31,10 +32,19 @@ const styles = StyleSheet.create({
     container: {
         display: "flex",
         flexDirection: "row",
-        justifyContent: "space-around",
         alignSelf: "stretch",
         borderStyle: "solid",
         borderWidth: 0.5,
         paddingVertical: 10
     },
+    gameImage: {
+        paddingHorizontal: 20
+    },
+    gameTitle: {
+        display: "flex",
+        flexDirection: "row",
+    },
+    gameTitleText: {
+        fontWeight: "bold"
+    }
 })
