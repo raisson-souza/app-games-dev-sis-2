@@ -7,9 +7,7 @@ import CustomFooter from "@components/CustomFooter"
 
 export default function App() {
   // TODO: jogo em ordem alfabetica
-  // TODO: estilo steam
   // TODO: pesquisa no header
-  // TODO: info no header e footer
   // TODO: extra: modal ao clicar no jogo exibindo trailer
   return (
     <View style={ styles.container }>
@@ -29,7 +27,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#66c0f4",
     alignItems: "center",
     justifyContent: "center",
   },

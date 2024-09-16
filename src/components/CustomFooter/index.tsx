@@ -3,7 +3,7 @@ import { View, StyleSheet, Text } from "react-native"
 export default function CustomFooter() {
     return (
         <View style={ styles.container }>
-            <Text>Footer</Text>
+            <Text style={ styles.text }>Developed by Raisson Souza</Text>
         </View>
     )
 }
@@ -14,7 +14,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         alignSelf: "stretch",
-        backgroundColor: "red",
+        backgroundColor: "#171a21",
         height: 50,
     },
+    text: {
+        color: "white"
+    }
 })

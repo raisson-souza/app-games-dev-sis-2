@@ -9,14 +9,20 @@ type _GameProps = {
 export default function Game(props: _GameProps) {
     return (
         <View style={ styles.container }>
-            <GameImage game={ props.game } />
-            <Text>{ props.game.name }</Text>
-            <Text>{ props.game.developer } 👾</Text>
-            <Text>{ props.game.platform } 🎮</Text>
-            <Text>{ props.game.genre } 📖</Text>
-            <Text>{ props.game.release_date } 📅</Text>
-            <Text>{ props.game.rating } </Text>
-            <Text>{ props.game.rating_score } ⭐</Text>
+            <View>
+                <GameImage game={ props.game } />
+            </View>
+            <View>
+                <View>
+                    <Text>{ props.game.name }</Text>
+                    <Text>{ props.game.developer } 👾</Text>
+                </View>
+                <Text>{ props.game.platform } 🎮</Text>
+                <Text>{ props.game.genre } 📖</Text>
+                <Text>{ props.game.release_date } 📅</Text>
+                <Text>{ props.game.rating } </Text>
+                <Text>{ props.game.rating_score } ⭐</Text>
+            </View>
         </View>
     )
 }
@@ -24,11 +30,11 @@ export default function Game(props: _GameProps) {
 const styles = StyleSheet.create({
     container: {
         display: "flex",
-        justifyContent: "center",
+        flexDirection: "row",
+        justifyContent: "space-around",
         alignSelf: "stretch",
-        backgroundColor: "green",
         borderStyle: "solid",
-        borderWidth: 1,
-        width: "100%",
+        borderWidth: 0.5,
+        paddingVertical: 10
     },
 })
