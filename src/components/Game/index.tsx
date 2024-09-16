@@ -4,11 +4,19 @@ import { StyleSheet, Text, View } from "react-native"
 
 type _GameProps = {
     game: GameProps
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>
+    setGame: React.Dispatch<React.SetStateAction<GameProps | undefined>>
 }
 
 export default function Game(props: _GameProps) {
     return (
-        <View style={ styles.container }>
+        <View
+            style={ styles.container }
+            onTouchEnd={ () => {
+                props.setGame(props.game)
+                props.setOpen(true)
+            }}
+        >
             <View style={ styles.gameImage }>
                 <GameImage game={ props.game } />
             </View>

@@ -1,9 +1,11 @@
 import React, { useState } from "react"
-import { ScrollView, StyleSheet, View } from "react-native"
+import { Modal, ScrollView, StyleSheet, View } from "react-native"
 import { Games } from "@data/Games"
 import Game from "@components/Game"
 import CustomHeader from "@components/CustomHeader"
 import CustomFooter from "@components/CustomFooter"
+import GameModal from "@components/GameModal"
+import { GameProps } from "@customTypes/GameProps"
 
 export default function App() {
   // TODO: extra: modal ao clicar no jogo exibindo trailer
@@ -14,9 +16,22 @@ export default function App() {
       ? true
       : name.toLowerCase().includes(search.toLowerCase())
   )
+  const [ open, setOpen ] = useState<boolean>(false)
+  const [ selectedGame, setSelectedGame ] = useState<GameProps | undefined>(undefined)
 
   return (
     <View style={ styles.container }>
+      <Modal
+        visible={ open }
+        animationType="fade"
+        transparent
+        onRequestClose={ () => setOpen(false) }
+      >
+        <GameModal
+          game={ selectedGame! }
+          setOpen={ setOpen }
+        />
+      </Modal>
       <CustomHeader
         search={ search}
         setSearch={ setSearch }
@@ -24,7 +39,12 @@ export default function App() {
       <ScrollView style={ styles.games }>
         {
           filteredGames.map((game, i) => {
-            return <Game key={ i } game={ game } />
+            return <Game
+              key={ i }
+              game={ game }
+              setOpen={ setOpen }
+              setGame={ setSelectedGame }
+            />
           })
         }
       </ScrollView>
