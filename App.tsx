@@ -6,15 +6,16 @@ import CustomHeader from "@components/CustomHeader"
 import CustomFooter from "@components/CustomFooter"
 
 export default function App() {
-  // TODO: jogo em ordem alfabetica
   // TODO: pesquisa no header
   // TODO: extra: modal ao clicar no jogo exibindo trailer
+  const games = Games.sort((a, b) => a.name.localeCompare(b.name))
+
   return (
     <View style={ styles.container }>
       <CustomHeader />
       <ScrollView style={ styles.games }>
         {
-          Games.map((game, i) => {
+          games.map((game, i) => {
             return <Game key={ i } game={ game } />
           })
         }
