@@ -1,5 +1,6 @@
 import { GameProps } from "@customTypes/GameProps"
-import { Text, View, StyleSheet, Image } from "react-native"
+import { Text, View, StyleSheet, Image, Button } from "react-native"
+import YoutubePlayer from "react-native-youtube-iframe"
 
 type GameModalProps = {
     game: GameProps
@@ -7,18 +8,17 @@ type GameModalProps = {
 }
 
 export default function GameModal(props: GameModalProps) {
+    const url = props.game.trailer_url.split("youtu.be/")[1]
     return (
-        <View
-            style={ styles.container }
-            onTouchStart={ () => props.setOpen(false) }
-        >
+        <View style={ styles.container }>
             <Text style={ styles.gameTitleText }>{ props.game.name }</Text>
-            <Image
-                alt={ props.game.name }
-                source={{ uri: props.game.image_url }}
-                height={ 350 }
-                width={ 300 }
+            <YoutubePlayer
+                height={400}
+                width={400}
+                play={true}
+                videoId={url}
             />
+            <Button title="Fechar" onPress={ () => props.setOpen(false) } />
         </View>
     )
 }
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#66c0f4",
         alignItems: "center",
         justifyContent: "center",
-        gap: 15
+        gap: 5
     },
     gameTitleText: {
         fontWeight: "bold",
